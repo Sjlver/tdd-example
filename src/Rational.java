@@ -9,7 +9,9 @@ public class Rational {
 
 	public Rational(int n, int d) {
 		if (d < 0) {
-			if (d == Integer.MIN_VALUE) {
+			if (n == Integer.MIN_VALUE) {
+				throw new IllegalArgumentException("Rational nominator too small");
+			} else if (d == Integer.MIN_VALUE) {
 				throw new IllegalArgumentException("Rational denominator too small");
 			}
 			n = -n;

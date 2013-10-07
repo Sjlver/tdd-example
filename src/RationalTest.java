@@ -55,6 +55,17 @@ public class RationalTest {
 		} catch (IllegalArgumentException e) {
 			assertEquals("Rational denominator too small", e.getMessage());
 		}
+
+		try {
+			new Rational(Integer.MIN_VALUE, -3);
+			fail("Could create rational causing overflow?");
+		} catch (IllegalArgumentException e) {
+			assertEquals("Rational nominator too small", e.getMessage());
+		}
+
+		Rational r = new Rational(Integer.MIN_VALUE, 3);
+		assertEquals("-2147483648/3", r.toString());
+
 	}
 
 }
