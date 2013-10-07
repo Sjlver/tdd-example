@@ -1,4 +1,7 @@
 import static org.junit.Assert.*;
+
+import java.util.Random;
+
 import org.junit.Test;
 
 
@@ -102,4 +105,23 @@ public class RationalTest {
 		assertEquals(new Rational(6, 7), r.plus(s));
 	}
 
+	@Test
+	public void testCommutativityOfPlus() {
+		final int N_TESTS = 100;
+		final Random generator = new Random();
+		for (int i = 0; i < N_TESTS; ++i) {
+			int n1 = generator.nextInt();
+			int d1 = generator.nextInt();
+			int n2 = generator.nextInt();
+			int d2 = generator.nextInt();
+			
+			try {
+				Rational r1 = new Rational(n1, d1);
+				Rational r2 = new Rational(n2, d2);
+				assertEquals(r1.plus(r2), r2.plus(r1));
+			} catch (IllegalArgumentException e) {
+				// Nothing, really...
+			}
+		}
+	}
 }
