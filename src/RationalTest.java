@@ -44,4 +44,17 @@ public class RationalTest {
 			assertEquals("Rational denominator must not be zero", e.getMessage());
 		}
 	}
+
+	@Test
+	public void testExceptionOnOverflow() {
+		// That's really interesting... When I first wrote this test, what I got
+		// was a StackOverflowError in the gcd method. That was unexpected.
+		try {
+			new Rational(1, Integer.MIN_VALUE);
+			fail("Could create rational causing overflow?");
+		} catch (IllegalArgumentException e) {
+			assertEquals("Rational denominator too small", e.getMessage());
+		}
+	}
+
 }
