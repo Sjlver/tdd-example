@@ -8,6 +8,10 @@ public class Rational {
 	public final int d;
 
 	public Rational(int n, int d) {
+		if (d < 0) {
+			n = -n;
+			d = -d;
+		}
 		int gcd = gcd(n, d);
 		this.n = n / gcd;
 		this.d = d / gcd;
