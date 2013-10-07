@@ -13,6 +13,8 @@ public class RationalTest {
 	public void testRationalToString() {
 		Rational r = new Rational(4, 3);
 		assertEquals("4/3", r.toString());
+		Rational s = new Rational(4, 7);
+		assertEquals("4/7", s.toString());
 	}
 
 }
