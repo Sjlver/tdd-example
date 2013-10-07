@@ -44,4 +44,8 @@ public class Rational {
 		return "" + n + "/" + d;
 	}
 
+	public Rational plus(Rational other) {
+		return new Rational(n + other.n, d);
+	}
+
 }

@@ -71,4 +71,11 @@ public class RationalTest {
 		}
 	}
 
+	@Test
+	public void testAddition() {
+		Rational r = new Rational(4, 7);
+		Rational s = new Rational(2, 7);
+		Rational res = r.plus(s);
+		assertEquals("6/7", res.toString());
+	}
 }
