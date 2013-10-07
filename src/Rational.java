@@ -53,4 +53,28 @@ public class Rational {
 		return new Rational(myN + otherN, newDenom);
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + d;
+		result = prime * result + n;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Rational other = (Rational) obj;
+		if (n != other.n)
+			return false;
+		if (d != other.d)
+			return false;
+		return true;
+	}
 }

@@ -94,5 +94,12 @@ public class RationalTest {
 		Rational res = r.plus(s);
 		assertEquals("6/1000001", res.toString());
 	}
+	
+	@Test
+	public void testRationalEquals() {
+		Rational r = new Rational(4, 7);
+		Rational s = new Rational(2, 7);
+		assertEquals(new Rational(6, 7), r.plus(s));
+	}
 
 }
