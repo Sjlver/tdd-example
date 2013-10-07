@@ -78,4 +78,12 @@ public class RationalTest {
 		Rational res = r.plus(s);
 		assertEquals("6/7", res.toString());
 	}
+	
+	@Test
+	public void testAdditionOfDifferentDenominators() {
+		Rational r = new Rational(4, 7);
+		Rational s = new Rational(2, 3);
+		Rational res = r.plus(s);
+		assertEquals("26/21", res.toString());
+	}
 }

@@ -45,7 +45,7 @@ public class Rational {
 	}
 
 	public Rational plus(Rational other) {
-		return new Rational(n + other.n, d);
+		return new Rational(n * other.d + other.n * d, d * other.d);
 	}
 
 }
