@@ -8,10 +8,16 @@ public class Rational {
 	public final int d;
 
 	public Rational(int n, int d) {
-		this.n = n;
-		this.d = d;
+		int gcd = gcd(n, d);
+		this.n = n / gcd;
+		this.d = d / gcd;
 	}
 	
+	private static int gcd(int a, int b) {
+		if (b == 0) return a;
+		return gcd(b, a % b);
+	}
+
 	@Override
 	public String toString() {
 		return "" + n + "/" + d;

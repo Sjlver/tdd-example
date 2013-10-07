@@ -17,4 +17,10 @@ public class RationalTest {
 		assertEquals("4/7", s.toString());
 	}
 
+	@Test
+	public void testRationalIsReduced() {
+		Rational r = new Rational(8, 6);
+		assertEquals("4/3", r.toString());
+	}
+
 }
