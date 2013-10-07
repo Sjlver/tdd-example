@@ -22,5 +22,11 @@ public class RationalTest {
 		Rational r = new Rational(8, 6);
 		assertEquals("4/3", r.toString());
 	}
+	
+	@Test
+	public void testNegativeRational() {
+		Rational r = new Rational(-8, 6);
+		assertEquals("-4/3", r.toString());
+	}
 
 }
