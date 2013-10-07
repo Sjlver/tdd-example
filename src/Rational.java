@@ -45,7 +45,12 @@ public class Rational {
 	}
 
 	public Rational plus(Rational other) {
-		return new Rational(n * other.d + other.n * d, d * other.d);
+		int dGcd = gcd(d, other.d);
+		int newDenom = d / dGcd * other.d;
+		int myN = n * (newDenom / d);
+		int otherN = other.n * (newDenom / other.d);
+		
+		return new Rational(myN + otherN, newDenom);
 	}
 
 }

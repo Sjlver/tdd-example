@@ -86,4 +86,13 @@ public class RationalTest {
 		Rational res = r.plus(s);
 		assertEquals("26/21", res.toString());
 	}
+
+	@Test
+	public void testAdditionOfLargeDenominators() {
+		Rational r = new Rational(4, 1000001);
+		Rational s = new Rational(2, 1000001);
+		Rational res = r.plus(s);
+		assertEquals("6/1000001", res.toString());
+	}
+
 }
