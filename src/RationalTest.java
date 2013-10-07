@@ -35,4 +35,13 @@ public class RationalTest {
 		assertEquals("-4/3", r.toString());
 	}
 
+	@Test
+	public void testExceptionOnZeroDenominator() {
+		try {
+			new Rational(1, 0);
+			fail("Could create rational with denominator zero");
+		} catch (IllegalArgumentException e) {
+			assertEquals("Rational denominator must not be zero", e.getMessage());
+		}
+	}
 }

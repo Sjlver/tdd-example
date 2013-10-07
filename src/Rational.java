@@ -11,7 +11,10 @@ public class Rational {
 		if (d < 0) {
 			n = -n;
 			d = -d;
+		} else if (d == 0) {
+			throw new IllegalArgumentException("Rational denominator must not be zero");
 		}
+		
 		int gcd = gcd(n, d);
 		this.n = n / gcd;
 		this.d = d / gcd;
