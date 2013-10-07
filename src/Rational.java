@@ -8,17 +8,25 @@ public class Rational {
 	public final int d;
 
 	public Rational(int n, int d) {
-		if (d < 0) {
-			if (n == Integer.MIN_VALUE) {
-				throw new IllegalArgumentException("Rational nominator too small");
-			} else if (d == Integer.MIN_VALUE) {
-				throw new IllegalArgumentException("Rational denominator too small");
-			}
-			n = -n;
-			d = -d;
-		} else if (d == 0) {
+
+		// Ensure values are within ranges that won't cause overflows on sign change
+		if (n == Integer.MIN_VALUE) {
+			throw new IllegalArgumentException("Rational nominator too small");
+		} else if (d == Integer.MIN_VALUE) {
+			throw new IllegalArgumentException("Rational denominator too small");
+		}
+
+		// Ensure denominator is not zero
+		if (d == 0) {
 			throw new IllegalArgumentException("Rational denominator must not be zero");
 		}
+		
+		// We want the denominator to always be positive; the nominator's sign
+		// defines this Rational's sign.
+		if (d < 0) {
+			n = -n;
+			d = -d;
+		} 
 		
 		int gcd = gcd(n, d);
 		this.n = n / gcd;
